@@ -1,0 +1,114 @@
+/* General App Styles */
+.app {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+main {
+  padding: 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid;
+}
+
+/* Light Theme */
+.app.light {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.app.light header {
+  border-bottom-color: #ddd;
+}
+
+.app.light button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Dark Theme */
+.app.dark {
+  background-color: #282c34;
+  color: #fff;
+}
+
+.app.dark header {
+  border-bottom-color: #444;
+}
+
+.app.dark button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dashboard {
+  margin-top: 2rem;
+}
+
+.experiment-playground {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.experiment-playground .actions {
+  margin-bottom: 1rem;
+}
+
+.experiment-playground .actions button {
+  margin-right: 0.5rem;
+}
+
+.experiment-playground .filters {
+  margin-bottom: 1rem;
+}
+
+.experiment-playground .filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.experiment-playground .filter span {
+  margin-right: 1rem;
+  width: 80px;
+}
+
+.experiment-playground .image-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.before-after-viewer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.before-after-viewer .image-container {
+  width: 45%;
+}
+
+.before-after-viewer .image-container h3 {
+  text-align: center;
+}
+
+.before-after-viewer .image-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+}
