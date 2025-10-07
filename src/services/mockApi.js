@@ -1,4 +1,6 @@
-export const applyFilter = (imageDataUrl, filter) => {
+export const applyFilter = (imageDataUrl, prompt) => {
+  console.log('Sending prompt to Nano Banana API:', prompt);
+
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
@@ -11,20 +13,22 @@ export const applyFilter = (imageDataUrl, filter) => {
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imageData.data;
 
-      if (filter.name === 'brightness') {
-        const value = filter.value || 0;
-        for (let i = 0; i < data.length; i += 4) {
-          data[i] += value; // red
-          data[i + 1] += value; // green
-          data[i + 2] += value; // blue
-        }
-      } else if (filter.name === 'contrast') {
-        const value = filter.value || 0;
-        const factor = (259 * (value + 255)) / (255 * (259 - value));
-        for (let i = 0; i < data.length; i += 4) {
-            data[i] = factor * (data[i] - 128) + 128;
-            data[i+1] = factor * (data[i+1] - 128) + 128;
-            data[i+2] = factor * (data[i+2] - 128) + 128;
+      if (prompt.type === 'ADJUSTMENT') {
+        if (prompt.name === 'brightness') {
+          const value = prompt.value || 0;
+          for (let i = 0; i < data.length; i += 4) {
+            data[i] += value; // red
+            data[i + 1] += value; // green
+            data[i + 2] += value; // blue
+          }
+        } else if (prompt.name === 'contrast') {
+          const value = prompt.value || 0;
+          const factor = (259 * (value + 255)) / (255 * (259 - value));
+          for (let i = 0; i < data.length; i += 4) {
+              data[i] = factor * (data[i] - 128) + 128;
+              data[i+1] = factor * (data[i+1] - 128) + 128;
+              data[i+2] = factor * (data[i+2] - 128) + 128;
+          }
         }
       }
 

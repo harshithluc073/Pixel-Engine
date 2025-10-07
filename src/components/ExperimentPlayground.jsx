@@ -21,7 +21,12 @@ const ExperimentPlayground = () => {
   };
 
   const addFilter = (filterName) => {
-    setFilters([...filters, { name: filterName, value: 0 }]);
+    const newFilter = {
+      type: 'ADJUSTMENT',
+      name: filterName,
+      value: 0,
+    };
+    setFilters([...filters, newFilter]);
   };
 
   const updateFilterValue = (index, value) => {

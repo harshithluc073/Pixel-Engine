@@ -112,3 +112,30 @@ header {
   height: auto;
   border: 1px solid #ddd;
 }
+
+.api-key-gate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.api-key-gate h2 {
+  margin-bottom: 1rem;
+}
+
+.api-key-gate form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.api-key-gate input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
