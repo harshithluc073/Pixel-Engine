@@ -1,16 +1,54 @@
-# React + Vite
+# Pixel Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pixel Engine is a lightweight, professional-grade image editing application powered by the Nano Banana API. It's designed to be simple, fast, and highly capable, offering a wide range of image editing features in a clean, intuitive interface.
 
-Currently, two official plugins are available:
+This is the initial version of the application, providing a solid foundation for future development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Current Features
 
-## React Compiler
+*   **API Key Authentication**: The application is gated and requires a valid API key to access its features.
+*   **Dark & Light Modes**: Seamlessly switch between dark and light themes for your preferred working environment.
+*   **Experiment Playground**: Upload an image and apply a chain of editing operations. Currently, `brightness` and `contrast` adjustments are supported.
+*   **Structured API Prompts**: The application is designed to send clear, structured prompts to the Nano Banana API for each editing feature.
+*   **Before/After Viewer**: Compare your original and edited images side-by-side to see the effects of your changes.
+*   **Image Export**: Download your edited images in `JPG` or `PNG` format.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   Node.js and npm installed on your machine.
+*   A valid **Gemini 2.5 Flash image (Nano Banana) API key**.
+
+### Installation & Running the Application
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173` (or the next available port).
+
+### Entering Your API Key
+
+Upon launching the application for the first time, you will be prompted to enter your **Gemini 2.5 Flash image (Nano Banana) API key**. This is required to access the image editing functionalities. Once submitted, the key will be stored in your browser's local storage for future sessions.
+
+## Future Development
+
+This project is in its early stages. Future updates will include:
+
+*   Full integration with the Nano Banana API.
+*   A comprehensive suite of over 100 image editing features.
+*   A minimal dashboard with search, quick access, and favorites.
+*   Presets & recipes for one-click edits and community sharing.
+*   And much more!
