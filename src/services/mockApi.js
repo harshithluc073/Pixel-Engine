@@ -45,7 +45,10 @@ function hslToRgb(h, s, l) {
 }
 
 export const applyFilter = (imageDataUrl, prompt) => {
-  console.log('Sending prompt to Nano Banana API:', prompt);
+  // Log only in development mode
+  if (import.meta.env.DEV) {
+    console.log('Sending prompt to Nano Banana API:', prompt);
+  }
 
   return new Promise((resolve, reject) => {
     const img = new Image();
