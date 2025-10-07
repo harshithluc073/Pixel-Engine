@@ -24,8 +24,8 @@ This is the initial version of the application, providing a solid foundation for
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/harshithluc073/Pixel-Engine.git
+    cd Pixel-Engine
     ```
 
 2.  **Install dependencies:**
