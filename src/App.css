@@ -88,6 +88,15 @@ header {
   width: 80px;
 }
 
+.hsl-sliders {
+  display: flex;
+  flex-direction: column;
+}
+
+.hsl-sliders label {
+  margin-right: 0.5rem;
+}
+
 .experiment-playground .image-preview img {
   max-width: 100%;
   height: auto;

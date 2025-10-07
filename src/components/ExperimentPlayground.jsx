@@ -21,17 +21,30 @@ const ExperimentPlayground = () => {
   };
 
   const addFilter = (filterName) => {
-    const newFilter = {
-      type: 'ADJUSTMENT',
-      name: filterName,
-      value: 0,
-    };
+    let newFilter;
+    if (filterName === 'hsl') {
+      newFilter = {
+        type: 'ADJUSTMENT',
+        name: 'hsl',
+        value: { h: 0, s: 0, l: 0 },
+      };
+    } else {
+      newFilter = {
+        type: 'ADJUSTMENT',
+        name: filterName,
+        value: 0,
+      };
+    }
     setFilters([...filters, newFilter]);
   };
 
-  const updateFilterValue = (index, value) => {
+  const updateFilterValue = (index, value, subValue) => {
     const newFilters = [...filters];
-    newFilters[index].value = value;
+    if (subValue) {
+      newFilters[index].value[subValue] = value;
+    } else {
+      newFilters[index].value = value;
+    }
     setFilters(newFilters);
   };
 
@@ -64,6 +77,10 @@ const ExperimentPlayground = () => {
       <div className="actions">
         <button onClick={() => addFilter('brightness')}>Add Brightness</button>
         <button onClick={() => addFilter('contrast')}>Add Contrast</button>
+        <button onClick={() => addFilter('sharpness')}>Add Sharpness</button>
+        <button onClick={() => addFilter('hsl')}>Add HSL</button>
+        <button onClick={() => addFilter('vignette')}>Add Vignette</button>
+        <button onClick={() => addFilter('grain')}>Add Grain</button>
         <button onClick={applyAllFilters}>Apply Filters</button>
         <button onClick={() => handleExport('jpeg')}>Export as JPG</button>
         <button onClick={() => handleExport('png')}>Export as PNG</button>
@@ -73,13 +90,33 @@ const ExperimentPlayground = () => {
         {filters.map((filter, index) => (
           <div key={index} className="filter">
             <span>{filter.name}</span>
-            <input
-              type="range"
-              min="-100"
-              max="100"
-              value={filter.value}
-              onChange={(e) => updateFilterValue(index, parseInt(e.target.value))}
-            />
+            {filter.name === 'hsl' ? (
+              <div className="hsl-sliders">
+                <label>H</label>
+                <input
+                  type="range" min="-180" max="180" value={filter.value.h}
+                  onChange={(e) => updateFilterValue(index, parseInt(e.target.value), 'h')}
+                />
+                <label>S</label>
+                <input
+                  type="range" min="-100" max="100" value={filter.value.s}
+                  onChange={(e) => updateFilterValue(index, parseInt(e.target.value), 's')}
+                />
+                <label>L</label>
+                <input
+                  type="range" min="-100" max="100" value={filter.value.l}
+                  onChange={(e) => updateFilterValue(index, parseInt(e.target.value), 'l')}
+                />
+              </div>
+            ) : (
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value={filter.value}
+                onChange={(e) => updateFilterValue(index, parseInt(e.target.value))}
+              />
+            )}
           </div>
         ))}
       </div>
